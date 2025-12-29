@@ -1,11 +1,11 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Application.Common.Interfaces.Authentication;
-using LedgerCore.Domain.Entities;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Application.Common.Interfaces.Authentication;
 
-namespace LedgerCore.Application.Features.Auth.Commands.Login
+namespace StockCore.Application.Features.Auth.Commands.Login
 {
     public static class Login
     {

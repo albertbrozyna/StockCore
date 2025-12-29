@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Domain.Exceptions
+namespace StockCore.Domain.Exceptions
 {
     public abstract class DomainException : Exception
     {

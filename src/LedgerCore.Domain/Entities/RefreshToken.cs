@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Domain.Entities
+namespace StockCore.Domain.Entities
 {
     public class RefreshToken
     {

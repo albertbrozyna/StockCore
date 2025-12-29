@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Text;
 
-namespace LedgerCore.Infrastructure.Persistence.Configuration
+namespace StockCore.Infrastructure.Persistence.Configuration
 {
     internal class JournalEntryConfiguration : IEntityTypeConfiguration<JournalEntry>
     {

@@ -1,16 +1,17 @@
 ﻿using Asp.Versioning;
-using LedgerCore.Api.Infrastructure;
-using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Application.Common.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using StockCore.Api;
+using StockCore.Api.Infrastructure;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Application.Common.Settings;
 using System.Text;
 
-namespace LedgerCore.Api.Common.Extensions
+namespace StockCore.Api.Common.Extensions
 {
     public static class DependencyInjection
     {

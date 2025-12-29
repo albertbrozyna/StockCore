@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LedgerCore.Domain.Enums
+namespace StockCore.Domain.Enums
 {
     public enum AccountType
     {

@@ -1,9 +1,9 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Application.Common.Interfaces.Authentication;
-using LedgerCore.Domain.Entities;
-using LedgerCore.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
-namespace LedgerCore.Infrastructure.Services.Identity.Register
+using StockCore.Application.Common.Interfaces.Authentication;
+using StockCore.Domain.Entities;
+using StockCore.Domain.Enums;
+namespace StockCore.Infrastructure.Services.Identity.Register
 {
     public class RegisterUserService(UserManager<User> userManager) : IRegisterUserService
     {

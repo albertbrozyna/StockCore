@@ -1,7 +1,7 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Domain.Entities;
+using StockCore.Domain.Entities;
 
-namespace LedgerCore.Application.Common.Interfaces
+namespace StockCore.Application.Common.Interfaces
 {
     public interface IIdentityService
     {

@@ -1,13 +1,13 @@
 ﻿using CSharpFunctionalExtensions;
 using FluentValidation;
-using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Application.Common.Interfaces.Authentication;
-using LedgerCore.Domain.Entities;
-using LedgerCore.Domain.Enums;
+using StockCore.Domain.Entities;
+using StockCore.Domain.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Application.Common.Interfaces.Authentication;
 
-namespace LedgerCore.Application.Features.Auth.Commands.Register
+namespace StockCore.Application.Features.Auth.Commands.Register
 {
     public static class Register
     {
@@ -43,7 +43,7 @@ namespace LedgerCore.Application.Features.Auth.Commands.Register
 
                 var topic = "Verify your account";
 
-                var content = $"Hello, your verification code to ledgerCoreApp is: {code}";
+                var content = $"Hello, your verification code to StockCoreApp is: {code}";
 
                 await emailSender.SendEmail(topic, content, newUser.Email);
 

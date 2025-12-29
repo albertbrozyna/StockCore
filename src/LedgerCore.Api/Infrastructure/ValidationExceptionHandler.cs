@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LedgerCore.Api.Infrastructure
+namespace StockCore.Api.Infrastructure
 {
     public class ValidationExceptionHandler : IExceptionHandler
 

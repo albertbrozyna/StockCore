@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Linq;
 
 
-namespace LedgerCore.Infrastructure.Services.Identity.Common
+namespace StockCore.Infrastructure.Services.Identity.Common
 {
     internal class UserActions
     {

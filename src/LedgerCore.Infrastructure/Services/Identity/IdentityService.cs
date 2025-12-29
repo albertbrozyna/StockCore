@@ -1,14 +1,14 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Domain.Entities;
-using LedgerCore.Domain.Exceptions;
-using LedgerCore.Infrastructure_.Migrations;
+using StockCore.Domain.Exceptions;
+using StockCore.Infrastructure_.Migrations;
 using Microsoft.AspNetCore.Identity;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Infrastructure.Services.Identity
+namespace StockCore.Infrastructure.Services.Identity
 {
     public class IdentityService(UserManager<User>userManager) : IIdentityService
     {

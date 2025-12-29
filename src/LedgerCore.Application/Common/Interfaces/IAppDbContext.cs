@@ -1,15 +1,12 @@
-﻿using LedgerCore.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Application.Common.Interfaces
+namespace StockCore.Application.Common.Interfaces
 {
     public interface IAppDbContext
     {
-        DbSet<Account>Accounts{get;}
-        DbSet<Transaction> Transactions { get; }
         DbSet<User> Users { get; }
         DbSet<RefreshToken>RefreshTokens { get; }
         DbSet<UserVerificationToken> UserVerificationTokens { get;  }

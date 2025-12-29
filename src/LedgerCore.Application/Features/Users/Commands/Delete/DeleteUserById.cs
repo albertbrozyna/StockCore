@@ -1,11 +1,11 @@
 ﻿using CSharpFunctionalExtensions;
 using FluentValidation;
-using LedgerCore.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Application.Common.Interfaces;
 
 
-namespace LedgerCore.Application.Features.Users.Commands.Delete
+namespace StockCore.Application.Features.Users.Commands.Delete
 {
 
     public static class DeleteUser

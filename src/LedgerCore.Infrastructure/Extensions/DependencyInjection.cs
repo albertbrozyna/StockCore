@@ -1,19 +1,19 @@
-﻿using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Application.Common.Interfaces.Authentication;
-using LedgerCore.Domain.Entities;
-using LedgerCore.Infrastructure.Persistence;
-using LedgerCore.Infrastructure.Persistence.Context;
-using LedgerCore.Infrastructure.Services;
-using LedgerCore.Infrastructure.Services.Identity;
-using LedgerCore.Infrastructure.Services.Identity.Login;
-using LedgerCore.Infrastructure.Services.Identity.Register;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Application.Common.Interfaces.Authentication;
+using StockCore.Domain.Entities;
+using StockCore.Infrastructure.Persistence;
+using StockCore.Infrastructure.Persistence.Context;
+using StockCore.Infrastructure.Services;
+using StockCore.Infrastructure.Services.Identity;
+using StockCore.Infrastructure.Services.Identity.Login;
+using StockCore.Infrastructure.Services.Identity.Register;
 
-namespace LedgerCore.Infrastructure.Extensions
+namespace StockCore.Infrastructure.Extensions
 {
     public static class DependencyInjection
     {
@@ -44,11 +44,11 @@ namespace LedgerCore.Infrastructure.Extensions
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
 
-            services.AddDbContext<LedgerDbContext>(options =>
+            services.AddDbContext<StockDbContext>(options =>
                 options.UseNpgsql(connectionString));
 
             services.AddScoped<IAppDbContext>(provider =>
-                provider.GetRequiredService<LedgerDbContext>());
+                provider.GetRequiredService<StockDbContext>());
 
             return services;
         }
@@ -65,7 +65,7 @@ namespace LedgerCore.Infrastructure.Extensions
             .AddRoleManager<RoleManager<IdentityRole<Guid>>>()
             .AddUserManager<UserManager<User>>()
             .AddSignInManager<SignInManager<User>>()
-            .AddEntityFrameworkStores<LedgerDbContext>();
+            .AddEntityFrameworkStores<StockDbContext>();
 
 
 

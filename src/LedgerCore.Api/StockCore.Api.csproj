@@ -21,9 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LedgerCore.Application\StockCore.Application.csproj" />
-    <ProjectReference Include="..\LedgerCore.Domain\StockCore.Domain.csproj" />
-    <ProjectReference Include="..\LedgerCore.Infrastructure\StockCore.Infrastructure.csproj" />
+    <ProjectReference Include="..\StockCore.Application\StockCore.Application.csproj" />
+    <ProjectReference Include="..\StockCore.Domain\StockCore.Domain.csproj" />
+    <ProjectReference Include="..\StockCore.Infrastructure\StockCore.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

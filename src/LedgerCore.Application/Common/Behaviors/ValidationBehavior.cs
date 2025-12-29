@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 
-namespace LedgerCore.Application.Common.Behaviors;
+namespace StockCore.Application.Common.Behaviors;
 
 // To klasa, która "opakowuje" każde żądanie wysłane przez MediatR
 public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>

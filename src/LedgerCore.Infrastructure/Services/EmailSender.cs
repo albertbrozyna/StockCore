@@ -1,20 +1,20 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Application.Common.Interfaces;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Configuration;
 using MimeKit;
+using StockCore.Application.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Infrastructure.Services
+namespace StockCore.Infrastructure.Services
 {
     internal class EmailSender(IConfiguration configuration) : IEmailSender
     {
         public async Task<Result> SendEmail(string title, string content, string userAdress)
         {
             var ledgerEmail = configuration.GetValue<string>("Email:Name");
-            var ledgerEmailPassword = configuration.GetValue<string>("Email:Password");
+            var StockEmailPassword = configuration.GetValue<string>("Email:Password");
 
             var message = new MimeMessage();
 

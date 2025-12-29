@@ -2,12 +2,12 @@
 using AutoMapper.QueryableExtensions;
 using CSharpFunctionalExtensions;
 using FluentValidation;
-using LedgerCore.Application.Common.Interfaces;
 using LedgerCore.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Application.Common.Interfaces;
 
-namespace LedgerCore.Application.Features.Users.Queries.GetUserByEmail
+namespace StockCore.Application.Features.Users.Queries.GetUserByEmail
 {
     public static class GetUserByEmail
     {

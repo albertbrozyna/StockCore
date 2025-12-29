@@ -1,11 +1,11 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Domain.Entities;
-using LedgerCore.Domain.Enums;
+using StockCore.Domain.Entities;
+using StockCore.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Application.Common.Interfaces.Authentication
+namespace StockCore.Application.Common.Interfaces.Authentication
 {
     public interface IRegisterUserService
     {

@@ -1,8 +1,8 @@
-﻿using LedgerCore.Infrastructure.Persistence;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using StockCore.Infrastructure.Persistence;
 
-namespace LedgerCore.Infrastructure.Extensions
+namespace StockCore.Infrastructure.Extensions
 {
     public static class ApplicationBuilderExtensions
     {

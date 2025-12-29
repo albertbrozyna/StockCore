@@ -1,11 +1,11 @@
-﻿using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Domain.Entities;
-using LedgerCore.Infrastructure.Persistence.Configuration;
+﻿using LedgerCore.Infrastructure.Persistence.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Domain.Entities;
 using System;
-namespace LedgerCore.Infrastructure.Persistence.Context;
+namespace StockCore.Infrastructure.Persistence.Context;
 
 public class LedgerDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IAppDbContext
 {

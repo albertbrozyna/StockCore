@@ -1,12 +1,12 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Application.Common.Interfaces.Authentication;
-using LedgerCore.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
+using StockCore.Application.Common.Interfaces.Authentication;
+using StockCore.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Infrastructure.Services.Identity.Login
+namespace StockCore.Infrastructure.Services.Identity.Login
 {
     public class LoginUserService(UserManager<User> userManager, SignInManager<User> signInManager) : ILoginUserService
     {

@@ -1,11 +1,11 @@
-﻿using LedgerCore.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using StockCore.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Infrastructure.Persistence.Configuration
+namespace StockCore.Infrastructure.Persistence.Configuration
 {
     internal class RefreshTokenConfiguration : IEntityTypeConfiguration<RefreshToken>
     {

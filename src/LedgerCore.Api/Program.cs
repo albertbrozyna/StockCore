@@ -1,9 +1,9 @@
 using Carter;
-using LedgerCore.Api.Common.Extensions;
-using LedgerCore.Application.Extensions;
-using LedgerCore.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Api.Common.Extensions;
+using StockCore.Application.Extensions;
+using StockCore.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

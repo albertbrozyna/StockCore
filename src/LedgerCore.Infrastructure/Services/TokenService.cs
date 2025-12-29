@@ -1,16 +1,17 @@
-﻿using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Application.Common.Interfaces.Authentication;
-using LedgerCore.Domain.Entities;
+﻿using StockCore.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Application.Common.Interfaces.Authentication;
+using StockCore.Domain.Entities;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace LedgerCore.Infrastructure.Services
+namespace StockCore.Infrastructure.Services
 {
     public class TokenService(IConfiguration configuration,IAppDbContext appDbContext,IIdentityService identityService) : ITokenService
     {

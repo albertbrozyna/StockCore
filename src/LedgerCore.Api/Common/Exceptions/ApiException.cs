@@ -1,4 +1,4 @@
-﻿namespace LedgerCore.Api.Common.Exceptions
+﻿namespace StockCore.Api.Common.Exceptions
 {
     public class ApiException : Exception
     {

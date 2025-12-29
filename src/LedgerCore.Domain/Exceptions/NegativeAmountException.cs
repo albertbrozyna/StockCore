@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LedgerCore.Domain.Exceptions
+namespace StockCore.Domain.Exceptions
 {
     // Dziedziczymy po DomainException, jeśli istnieje w Twoim projekcie
     public class NegativeAmountException : DomainException

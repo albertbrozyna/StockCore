@@ -1,7 +1,7 @@
-﻿using LedgerCore.Domain.Enums;
+﻿using StockCore.Domain.Enums;
 using System;
 
-namespace LedgerCore.Domain.Entities;
+namespace StockCore.Domain.Entities;
 
 public class UserVerificationToken
 {

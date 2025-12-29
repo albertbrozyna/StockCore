@@ -1,10 +1,10 @@
-﻿using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Domain.Entities;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Domain.Entities;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace LedgerCore.Api
+namespace StockCore.Api
 {
     public class CurrentUserDetails(IHttpContextAccessor httpContextAccessor) : IUserDetails
     {

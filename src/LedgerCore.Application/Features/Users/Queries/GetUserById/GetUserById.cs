@@ -2,15 +2,15 @@
 using AutoMapper.QueryableExtensions;
 using CSharpFunctionalExtensions;
 using FluentValidation;
-using LedgerCore.Application.Common.Interfaces;
 using LedgerCore.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Application.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Application.Features.Users.Queries.GetUserByEmail
+namespace StockCore.Application.Features.Users.Queries.GetUserById
 {
     public static class GetUserById
     {

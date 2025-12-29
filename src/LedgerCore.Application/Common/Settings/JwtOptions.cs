@@ -1,4 +1,4 @@
-﻿namespace LedgerCore.Application.Common.Settings;
+﻿namespace StockCore.Application.Common.Settings;
 
 public class JwtOptions
 {

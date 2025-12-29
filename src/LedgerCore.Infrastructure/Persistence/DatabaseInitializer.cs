@@ -1,16 +1,16 @@
-﻿using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Domain.Enums;
-using LedgerCore.Infrastructure.Persistence.Context;
+﻿using StockCore.Application.Common.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using StockCore.Domain.Enums;
+using StockCore.Infrastructure.Persistence.Context;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Infrastructure.Persistence
+namespace StockCore.Infrastructure.Persistence
 {
-    public class DatabaseInitializer(LedgerDbContext appDbContext, RoleManager<IdentityRole<Guid>> roleManager, ILogger<DatabaseInitializer> logger)
+    public class DatabaseInitializer(StockDbContext appDbContext, RoleManager<IdentityRole<Guid>> roleManager, ILogger<DatabaseInitializer> logger)
     {
 
         public async Task InitializeAsync()

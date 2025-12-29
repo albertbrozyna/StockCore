@@ -1,14 +1,14 @@
 ﻿using CSharpFunctionalExtensions;
 using FluentValidation;
-using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Application.Common.Settings;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using StockCore.Application.Common.Interfaces;
+using StockCore.Application.Common.Settings;
 
 
-namespace LedgerCore.Application.Features.Users.Commands.UploadProfilePhoto
+namespace StockCore.Application.Features.Users.Commands.UploadProfilePhoto
 {
 
     public static class UploadProfilePhoto { 

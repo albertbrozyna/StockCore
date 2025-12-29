@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-namespace LedgerCore.Domain.Entities
+namespace StockCore.Domain.Entities
 {
     public class User : IdentityUser<Guid>
     {

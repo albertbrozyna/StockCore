@@ -1,9 +1,9 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Application.Common.Interfaces;
-using LedgerCore.Application.Common.Interfaces.Authentication;
+using StockCore.Application.Common.Interfaces;
 using MediatR;
+using StockCore.Application.Common.Interfaces.Authentication;
 
-namespace LedgerCore.Application.Features.Auth.Commands.VerifyEmail
+namespace StockCore.Application.Features.Auth.Commands.VerifyEmail
 {
     public static class VerifyEmail
     {

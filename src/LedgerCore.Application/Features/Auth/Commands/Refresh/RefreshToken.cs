@@ -1,11 +1,11 @@
 ﻿using CSharpFunctionalExtensions;
-using LedgerCore.Application.Common.Interfaces.Authentication;
 using MediatR;
+using StockCore.Application.Common.Interfaces.Authentication;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Application.Features.Auth.Commands.Refresh
+namespace StockCore.Application.Features.Auth.Commands.Refresh
 {
     public static  class RefreshToken
     {

@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
-namespace LedgerCore.Api.Common.Extensions;
+namespace StockCore.Api.Common.Extensions;
 
 public static class SwaggerExtensions
 {

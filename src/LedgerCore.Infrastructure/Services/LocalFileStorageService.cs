@@ -1,9 +1,9 @@
-﻿using LedgerCore.Application.Common.Interfaces;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using StockCore.Application.Common.Interfaces;
 
-namespace LedgerCore.Infrastructure.Services
+namespace StockCore.Infrastructure.Services
 {
     public class LocalFileStorageService(IWebHostEnvironment environment, ILogger<LocalFileStorageService> logger) : IFileStorageService
     {

@@ -1,13 +1,13 @@
 ﻿using CSharpFunctionalExtensions;
 using FluentValidation;
-using LedgerCore.Application.Common.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using StockCore.Application.Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LedgerCore.Application.Features.Users.Commands.Block
+namespace StockCore.Application.Features.Users.Commands.Block
 {
     public static class BlockUser
     {
