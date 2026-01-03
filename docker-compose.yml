@@ -3,11 +3,11 @@ version: '3.8'
 services:
   db:
     image: postgres:16-alpine 
-    container_name: ledger_db
+    container_name: stock_db
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=sekretnehaslo123
-      - POSTGRES_DB=ledger_db
+      - POSTGRES_DB=stock_db
     ports:
       - "5432:5432"  
     volumes:
