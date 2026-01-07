@@ -1,15 +1,22 @@
 ﻿using StockCore.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StockCore.Domain.Entities
 {
     public class Warehouse : ITenantEntity
     {
+        public Guid Id { get; set; }
         public Guid TenantId { get; set; }
-        public int Id { get; set; }
+
         public string Name { get; set; }
         public List<WarehouseHall> Halls { get; set; } = new();
+
+        private Warehouse() { }
+
+        public Warehouse(Guid id, Guid tenantId, string name)
+        {
+            Id = id;
+            TenantId = tenantId;
+            Name = name;
+        }
     }
 }

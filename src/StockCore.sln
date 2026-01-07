@@ -24,6 +24,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockCore.ServiceDefaults",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockCore.Infrastructure", "StockCore.Infrastructure\StockCore.Infrastructure.csproj", "{436B7689-4DFC-9442-0D0D-001468FD9B6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockCore.Shared", "StockCore.Shared\StockCore.Shared.csproj", "{759A1D63-8CF7-4320-A606-CB625CC8C0F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{436B7689-4DFC-9442-0D0D-001468FD9B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{436B7689-4DFC-9442-0D0D-001468FD9B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{436B7689-4DFC-9442-0D0D-001468FD9B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759A1D63-8CF7-4320-A606-CB625CC8C0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759A1D63-8CF7-4320-A606-CB625CC8C0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759A1D63-8CF7-4320-A606-CB625CC8C0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759A1D63-8CF7-4320-A606-CB625CC8C0F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -152,6 +152,145 @@ namespace LedgerCore.Infrastructure_.Migrations
                     b.ToTable("aspnetusertokens", (string)null);
                 });
 
+            modelBuilder.Entity("StockCore.Domain.Entities.AttributeDefinition", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("DataType")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TenantId", "Name")
+                        .IsUnique();
+
+                    b.ToTable("AttributeDefinitions", (string)null);
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Company", b =>
+                {
+                    b.Property<Guid>("TenantId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CompanyJoinCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("TenantId");
+
+                    b.ToTable("Companies", (string)null);
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Product", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("character varying(200)");
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("numeric(18,2)");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TenantId", "Code")
+                        .IsUnique();
+
+                    b.ToTable("Products", (string)null);
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.ProductAttributeValue", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AttributeDefinitionId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AttributeDefinitionId");
+
+                    b.HasIndex("ProductId", "AttributeDefinitionId")
+                        .IsUnique();
+
+                    b.ToTable("ProductAttributeValues", (string)null);
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Rack", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("NumberOfLevels")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("NumberOfSections")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("RackNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("WarehouseHallId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WarehouseHallId");
+
+                    b.ToTable("rack");
+                });
+
             modelBuilder.Entity("StockCore.Domain.Entities.RefreshToken", b =>
                 {
                     b.Property<Guid>("Id")
@@ -163,6 +302,9 @@ namespace LedgerCore.Infrastructure_.Migrations
 
                     b.Property<bool>("IsRevoked")
                         .HasColumnType("boolean");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Token")
                         .IsRequired()
@@ -179,6 +321,35 @@ namespace LedgerCore.Infrastructure_.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("RefreshTokens", (string)null);
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Shelf", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("MaxCapacity")
+                        .HasColumnType("double precision");
+
+                    b.Property<Guid>("RackId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ShelfCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RackId");
+
+                    b.ToTable("shelf");
                 });
 
             modelBuilder.Entity("StockCore.Domain.Entities.User", b =>
@@ -210,6 +381,9 @@ namespace LedgerCore.Infrastructure_.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsAcceptedByCompany")
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
@@ -250,6 +424,9 @@ namespace LedgerCore.Infrastructure_.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("boolean");
 
@@ -287,6 +464,9 @@ namespace LedgerCore.Infrastructure_.Migrations
                     b.Property<int>("FailedAttempts")
                         .HasColumnType("integer");
 
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
                     b.Property<string>("TokenHash")
                         .IsRequired()
                         .HasColumnType("text");
@@ -311,6 +491,57 @@ namespace LedgerCore.Infrastructure_.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("userverificationtokens");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Warehouse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<Guid?>("CompanyTenantId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyTenantId");
+
+                    b.ToTable("warehouse");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.WarehouseHall", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("HallCode")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("TenantId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("WarehouseId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int?>("WarehouseId1")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("WarehouseId1");
+
+                    b.ToTable("warehousehall");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -364,6 +595,34 @@ namespace LedgerCore.Infrastructure_.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("StockCore.Domain.Entities.ProductAttributeValue", b =>
+                {
+                    b.HasOne("StockCore.Domain.Entities.AttributeDefinition", "AttributeDefinition")
+                        .WithMany()
+                        .HasForeignKey("AttributeDefinitionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("StockCore.Domain.Entities.Product", "Product")
+                        .WithMany("AttributeValues")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AttributeDefinition");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Rack", b =>
+                {
+                    b.HasOne("StockCore.Domain.Entities.WarehouseHall", null)
+                        .WithMany("Racks")
+                        .HasForeignKey("WarehouseHallId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("StockCore.Domain.Entities.RefreshToken", b =>
                 {
                     b.HasOne("StockCore.Domain.Entities.User", "User")
@@ -373,6 +632,15 @@ namespace LedgerCore.Infrastructure_.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Shelf", b =>
+                {
+                    b.HasOne("StockCore.Domain.Entities.Rack", null)
+                        .WithMany("Shelves")
+                        .HasForeignKey("RackId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("StockCore.Domain.Entities.UserVerificationToken", b =>
@@ -386,9 +654,48 @@ namespace LedgerCore.Infrastructure_.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("StockCore.Domain.Entities.Warehouse", b =>
+                {
+                    b.HasOne("StockCore.Domain.Entities.Company", null)
+                        .WithMany("Warehouses")
+                        .HasForeignKey("CompanyTenantId");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.WarehouseHall", b =>
+                {
+                    b.HasOne("StockCore.Domain.Entities.Warehouse", null)
+                        .WithMany("Halls")
+                        .HasForeignKey("WarehouseId1");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Company", b =>
+                {
+                    b.Navigation("Warehouses");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Product", b =>
+                {
+                    b.Navigation("AttributeValues");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Rack", b =>
+                {
+                    b.Navigation("Shelves");
+                });
+
             modelBuilder.Entity("StockCore.Domain.Entities.User", b =>
                 {
                     b.Navigation("RefreshTokens");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.Warehouse", b =>
+                {
+                    b.Navigation("Halls");
+                });
+
+            modelBuilder.Entity("StockCore.Domain.Entities.WarehouseHall", b =>
+                {
+                    b.Navigation("Racks");
                 });
 #pragma warning restore 612, 618
         }

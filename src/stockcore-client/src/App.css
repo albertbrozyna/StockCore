@@ -1,42 +1,28 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* index.css lub App.css */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Nowe, eleganckie tło */
+  background: linear-gradient(135deg, #1f2b40 0%, #0d121c 100%); /* Ciemny, głęboki gradient */
+  background-size: cover;
+  background-attachment: fixed;
+  color: #e0e0e0; /* Jasny tekst na ciemnym tle */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Opcjonalnie, dla subtelnego efektu cząsteczek na tle */
+.background-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIHhtbG5zPSJodHRwOi8vd3d3LnAzLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBmaWxsPSIjRkZGRkZGIiBmaWxsLW9wYWNpdHk9Ii4wMyIgZD0iTTAgMTIwaDEyMFYwSDB6Ii8+PHBhdGggZD0iTTcgMjFoMXY0SDd6TTE3IDQ5aDF2NGgxN3pNMCA1MWgxVjQ5SDB6TTMxIDUzaDF2NHgzMXpNNjMgNTNoMXY0SDYzek0xNyAzM2gxdjRIMITd6TTExOSA2N2gxVjY1SDEwMnY2SDEwMXYtNkg5MXY2SDkwdi02SDgwVjY1SDc5di02SDY5di01SDY4VjU5SDU4VjU4SDQ4VjU3SDM4VjU2SDI4VjU1SDM4VjU0SDQ4VjUzSDU4VjUySDY4VjUxSDc4VjUwSDg4VjQ5SDk4VjQ4SDExOFY1MHpNOCAxN2gxdjRINzhWMTVIMThWMThINzFWMjJIMTdWMjlIMTZWMjZIMTZWMjVIMjZWMTZIMjRWMTVINzVWMTZINzRWMTVIMTdWMTd6IiBmaWxsPSIjRkZGRkZGIiBmaWxsLW9wYWNpdHk9Ii4wMiIvPjwvZz48L3N2Z34');
+  opacity: 0.1;
+  pointer-events: none; /* Upewnij się, że nie blokuje interakcji */
+  z-index: -1; /* Umieść tło za formularzem */
 }

@@ -28,6 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StockCore.Application\StockCore.Application.csproj" />
     <ProjectReference Include="..\StockCore.Domain\StockCore.Domain.csproj" />
+    <ProjectReference Include="..\StockCore.Shared\StockCore.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

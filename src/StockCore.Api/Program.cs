@@ -2,21 +2,23 @@ using Carter;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StockCore.Api.Common.Extensions;
-using StockCore.Application.Extensions;
 using StockCore.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddCarter().AddPersistence(builder.Configuration).AddInfrastructure(builder.Configuration)
-    .AddIdentity(builder.Configuration)
-    .AddAuth(builder.Configuration).AddVersioning(builder.Configuration).AddSwagger()
-    .AddApplication(builder.Configuration)
-    .AddCustomTimeouts()
-    .AddPresentation()
-    .AddCorsPolicy()
-    .AddInitalizer();
+builder.Services.AddCarter();
 
+
+var presentationAssembly = typeof(Program).Assembly;
+var infrastructureAssembly = typeof(StockCore.Infrastructure.Configuration.InfrastructureServiceInstaller).Assembly;
+var applicationAssembly = typeof(StockCore.Application.Configuration.ApplicationServiceInstaller).Assembly;
+
+builder.Services.InstallServicesInAssemblies(
+    builder.Configuration,
+    presentationAssembly,
+    infrastructureAssembly,
+    applicationAssembly);
 
 
 var app = builder.Build();

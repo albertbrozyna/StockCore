@@ -1,19 +1,18 @@
-﻿using AutoMapper;
-using FluentValidation;
+﻿using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using StockCore.Application.Common.Behaviors;
 using StockCore.Application.Common.Interfaces;
 using StockCore.Application.Common.Settings;
+using StockCore.Shared.Interfaces;
 using System.Reflection;
 
-namespace StockCore.Application.Extensions
+namespace StockCore.Application.Configuration
 {
-    public static class DependencyInjection
+    public class ApplicationServiceInstaller : IServiceInstaller
     {
-        public static IServiceCollection AddApplication(this IServiceCollection services,IConfiguration configuration)
+        public void Install(IServiceCollection services, IConfiguration configuration)
         {
-
             services.AddValidatorsFromAssembly(typeof(IAppDbContext).Assembly);
 
             services.AddMediatR(cfg =>
@@ -29,9 +28,7 @@ namespace StockCore.Application.Extensions
             services.Configure<FileStorageSettings>(configuration.GetSection("FileStorageSettings"));
 
 
-            services.AddAutoMapper(cfg => { },Assembly.GetExecutingAssembly());
-            return services;
-        } 
-
+            services.AddAutoMapper(cfg => { }, Assembly.GetExecutingAssembly());
+        }
     }
 }

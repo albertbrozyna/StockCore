@@ -47,7 +47,7 @@ namespace StockCore.Infrastructure.Persistence
 
 
             // Create a sample company
-            var company = new Company(Guid.NewGuid(), "Test1234", "BorynWarehouse", []);
+            var company = new Company(Guid.NewGuid(), "Test1234", "BorynWarehouse");
 
 
 

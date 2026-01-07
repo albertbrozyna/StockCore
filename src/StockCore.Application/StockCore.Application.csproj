@@ -25,13 +25,13 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\StockCore.Domain\StockCore.Domain.csproj" />
+	  <ProjectReference Include="..\StockCore.Shared\StockCore.Shared.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Features\Shelf\" />
 	  <Folder Include="Features\Rack\" />
+	  <Folder Include="Features\Shelf\Commands\" />
 	  <Folder Include="Features\WarehouseHall\" />
-	  <Folder Include="Features\Warehouse\" />
 	</ItemGroup>
 
 </Project>

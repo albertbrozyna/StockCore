@@ -10,17 +10,24 @@ namespace StockCore.Infrastructure.Persistence.Context;
 
 public class StockDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>, IAppDbContext
 {
-
-    private readonly Guid _tenantId;
-    public StockDbContext(DbContextOptions<StockDbContext> options,IUserDetails userDetails) : base(options)
-    {
-        _tenantId = userDetails.TenantId;
-    }
-
     public DbSet<RefreshToken> RefreshTokens { get; set; }
     public DbSet<UserVerificationToken> UserVerificationTokens { get; set; }
 
     public DbSet<Company> Companies { get; set; }
+
+    public DbSet<Product> Products { get; set; }
+
+    public DbSet<ProductAttributeValue> ProductAttributeValues { get; set; }
+
+    public DbSet<AttributeDefinition> AttributeDefinitions { get; set; }
+
+    private readonly IUserDetails _userDetails;
+    public StockDbContext(DbContextOptions<StockDbContext> options,IUserDetails userDetails) : base(options)
+    {
+        _userDetails = userDetails;
+    }
+
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -56,8 +63,11 @@ public class StockDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>,
     {
         var parameter = Expression.Parameter(entityType, "e");
         var property = Expression.Property(parameter, nameof(ITenantEntity.TenantId));
-        var tenantIdConstant = Expression.Constant(_tenantId);
-        var body = Expression.Equal(property, tenantIdConstant);
+
+        var userDetailsExpression = Expression.Constant(_userDetails);
+        var tenantIdProperty = Expression.Property(userDetailsExpression, nameof(IUserDetails.TenantId));
+
+        var body = Expression.Equal(property, tenantIdProperty);
         return Expression.Lambda(body, parameter);
     }
 }

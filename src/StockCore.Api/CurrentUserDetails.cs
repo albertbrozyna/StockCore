@@ -29,7 +29,6 @@ namespace StockCore.Api
 
                 return userId;
             }
-            set => throw new NotSupportedException("UserId is read-only from token.");
         }
 
         public Guid TenantId
@@ -46,7 +45,7 @@ namespace StockCore.Api
 
                 return tenantId;
             }
-            set => throw new NotSupportedException("TenantId is read-only from token.");
+
         }
     }
 }

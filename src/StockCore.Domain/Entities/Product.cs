@@ -1,26 +1,28 @@
 ﻿using StockCore.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace StockCore.Domain.Entities
 {
     public class Product : ITenantEntity
     {
-        public Product(int id, string name, decimal price, List<ProductAttributeValue> attributeValues, Guid tenantId)
+        public Guid Id { get; set; }
+        public Guid TenantId { get; set; }
+
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public string Code { get; set; }
+        public string Description { get; set; }
+        public Guid ShelfId { get; set; } 
+        public Shelf Shelf { get; set; }
+        public List<ProductAttributeValue> AttributeValues { get; set; } = new();
+
+        public Product(Guid id, Guid tenantId, string name, decimal price, string description,string code)
         {
             Id = id;
             Name = name;
             Price = price;
-            AttributeValues = attributeValues;
             TenantId = tenantId;
+            Description = description;
+            Code = code;
         }
-
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-
-        public List<ProductAttributeValue> AttributeValues { get; set; } = new();
-        public Guid TenantId { get ; set; }
     }
 }
