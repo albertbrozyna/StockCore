@@ -1,9 +1,12 @@
-import { AuthRepository, RegisterRequest } from "../../domain/repositories/AuthRepository";
+import type { AuthRepository, RegisterRequest } from "../../domain/repositories/AuthRepository";
 
 export class RegisterUseCase{
-    constructor(private authRepostory : AuthRepository){}
+    private authRepostory : AuthRepository;
+    constructor(authRepostory : AuthRepository){
+        this.authRepostory = authRepostory;
+    }
 
-    async excectue(data : RegisterRequest){
+    async execute(data : RegisterRequest){
         return await this.authRepostory.register(data);
     }
 }

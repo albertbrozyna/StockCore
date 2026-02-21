@@ -1,4 +1,4 @@
-import { User } from "../entities/User";
+import type { User } from "../entities/User";
 
 export interface LoginRequest {
   email: string;
@@ -17,6 +17,5 @@ export interface RegisterRequest {
 
 export interface AuthRepository {
   login(data: LoginRequest): Promise<User>;
-
   register(data: RegisterRequest): Promise<string>;
 }

@@ -21,6 +21,13 @@ public class StockDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>,
 
     public DbSet<AttributeDefinition> AttributeDefinitions { get; set; }
 
+    public DbSet<Warehouse> Warehouses { get; set; }
+
+    public DbSet<WarehouseHall> WarehouseHalls { get; set; }
+
+    public DbSet<Rack> Racks { get; set; }
+    public DbSet<Shelf> Shelfs { get; set; }
+
     private readonly IUserDetails _userDetails;
     public StockDbContext(DbContextOptions<StockDbContext> options,IUserDetails userDetails) : base(options)
     {

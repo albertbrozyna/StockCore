@@ -1,6 +1,7 @@
 // presentation/pages/RegisterPage.tsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Załóżmy, że masz react-router-dom
+import { useAuth } from '../hooks/useAuth';
 
 const RegisterPage = () => {
   const [firstName, setFirstName] = useState('');
@@ -11,7 +12,9 @@ const RegisterPage = () => {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { handleRegister } = useAuth();
 
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -29,10 +32,18 @@ const RegisterPage = () => {
     }
     
     // Tutaj normalnie wywołałbyś useRegister z warstwy hooks/useAuth
-    // const { handleRegister } = useAuth();
-    // await handleRegister({ firstName, lastName, email, password });
+   
 
-    console.log({ firstName, lastName, email, password, agreeToTerms });
+    await handleRegister({
+      email,
+      firstName,
+      lastName,
+      userRole: 1, // Przykładowa rola użytkownika
+      password,
+      phoneNumber: "",
+      companyJoinCode: ""
+    });
+
     
     // Symulacja API
     setTimeout(() => {

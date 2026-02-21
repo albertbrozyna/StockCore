@@ -1,27 +1,18 @@
 // data/repositories/ApiAuthRepository.ts
-import { AuthRepository, LoginRequest, RegisterRequest } from "../../domain/repositories/AuthRepository";
-import { User } from "../../domain/entities/User";
+import type { AuthRepository, LoginRequest, RegisterRequest } from "../../domain/repositories/AuthRepository";
+import type { User } from "../../domain/entities/User";
+import axiosClient from "../api/axiosClient";
 
 export class ApiAuthRepository implements AuthRepository {
   async login(data : LoginRequest): Promise<User> {
-    const response = await fetch('http://localhost:5109', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
+    const response = await axiosClient.post('/v1/login',data);
 
-    if (!response.ok) throw new Error('Błędne dane logowania');
-    return response.json();
+    return response.data();
   }
 
-    async register(data : RegisterRequest) : Promise<string>{
-      const response = await fetch('http://localhost:5109/api/v1/register',{
-        method: 'POST',
-        headers : { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-
-      return 'tekst';
-    }
+  async register(data : RegisterRequest) : Promise<string>{
+    const response = await axiosClient.post('/api/v1/register',data);
+    return response.data();
+  }
 
 }
