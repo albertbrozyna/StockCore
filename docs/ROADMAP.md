@@ -6,6 +6,7 @@
 - **T00** szkielet rozwiązania (build zielony po poprawce audytu NuGet)
 - **T01** strongly-typed ID + konwertery EF/JSON → [`raporty/RAPORT_T01.md`](raporty/RAPORT_T01.md)
 - **T02** SharedKernel — klasy bazowe i abstrakcje → [`raporty/RAPORT_T02.md`](raporty/RAPORT_T02.md)
+- **T04** value objecty ogólne → [`raporty/RAPORT_T04.md`](raporty/RAPORT_T04.md)
 - **T03** enumy i smart enums → [`raporty/RAPORT_T03.md`](raporty/RAPORT_T03.md)
 
 ## Następne (kolejność z PLAN_PRAC)
