@@ -32,3 +32,7 @@ dotnet_naming_style.underscore_camel.capitalization = camel_case
 
 # 'Shared' namespace is mandated by project conventions; VB interop is irrelevant here.
 dotnet_diagnostic.CA1716.severity = none
+
+# Domain vocabulary (PickingLineStatus.Short) is mandated by the domain model.
+[**/Domain/SharedKernel/Enums/PickingLineStatus.cs]
+dotnet_diagnostic.CA1720.severity = none
