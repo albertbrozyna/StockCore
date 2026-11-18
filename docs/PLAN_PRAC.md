@@ -49,7 +49,7 @@ Cel: zaimplementować model domenowy i warstwę persystencji w **23 małych zada
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
 | T05 | Value objecty domenowe | T02, T03, T04 | ~7k tokenów | ☑ |
-| T06 | Zdarzenia domenowe (wszystkie) | T01, T02, T03 | ~6k tokenów | ☐ |
+| T06 | Zdarzenia domenowe (wszystkie) | T01, T02, T03 | ~6k tokenów | ☑ |
 | T17 | Infrastruktura — DbContext, konwencje, interceptory | T01, T02, T07 | ~12k tokenów | ☐ |
 
 ### Fala 5 — agregaty domenowe (do 7 czatów równolegle)
