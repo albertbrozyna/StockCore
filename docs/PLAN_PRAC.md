@@ -22,20 +22,20 @@ Cel: zaimplementować model domenowy i warstwę persystencji w **23 małych zada
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T00 | Szkielet rozwiązania | — | ~8k tokenów | ☐ |
+| T00 | Szkielet rozwiązania | — | ~8k tokenów | ☑ |
 
 ### Fala 1 — fundamenty (równolegle)
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T01 | Strongly-typed ID + konwertery | — | ~6k tokenów | ☐ |
-| T03 | Enumeracje (zwykłe i smart enums) | — | ~5k tokenów | ☐ |
+| T01 | Strongly-typed ID + konwertery | — | ~6k tokenów | ☑ |
+| T03 | Enumeracje (zwykłe i smart enums) | — | ~5k tokenów | ☑ |
 
 ### Fala 2
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T02 | SharedKernel — klasy bazowe i abstrakcje | T01 | ~9k tokenów | ☐ |
+| T02 | SharedKernel — klasy bazowe i abstrakcje | T01 | ~9k tokenów | ☑ |
 
 ### Fala 3 (równolegle)
 
