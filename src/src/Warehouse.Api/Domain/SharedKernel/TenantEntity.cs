@@ -7,7 +7,7 @@ namespace Warehouse.Api.Domain.SharedKernel;
 /// Audited entity owned by a tenant. <see cref="TenantId"/> is set once — by the interceptor from the tenant context,
 /// or by a parent aggregate's factory — via the internal <see cref="SetTenant"/>; it cannot change afterwards.
 /// </summary>
-public abstract class TenantEntity<TId> : AuditableEntity<TId>, IHasTenant
+public abstract class TenantEntity<TId> : AuditableEntity<TId>, IHasTenant, ITenantStamp
     where TId : notnull
 {
     protected TenantEntity()
@@ -32,4 +32,6 @@ public abstract class TenantEntity<TId> : AuditableEntity<TId>, IHasTenant
 
         TenantId = tenantId;
     }
+
+    void ITenantStamp.SetTenant(TenantId tenantId) => SetTenant(tenantId);
 }

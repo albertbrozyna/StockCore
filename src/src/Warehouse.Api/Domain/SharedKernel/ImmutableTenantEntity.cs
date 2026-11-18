@@ -7,7 +7,7 @@ namespace Warehouse.Api.Domain.SharedKernel;
 /// Append-only tenant entry (ledger). Has no mutating methods; the interceptor rejects Modified/Deleted states.
 /// Audit data and tenant are stamped through the internal <c>Stamp*</c>/<see cref="SetTenant"/> methods.
 /// </summary>
-public abstract class ImmutableTenantEntity<TId> : Entity<TId>, IHasTenant, ICreationAudited
+public abstract class ImmutableTenantEntity<TId> : Entity<TId>, IHasTenant, ICreationAudited, ICreationStamp, ITenantStamp, IImmutableEntity
     where TId : notnull
 {
     protected ImmutableTenantEntity()
@@ -43,4 +43,8 @@ public abstract class ImmutableTenantEntity<TId> : Entity<TId>, IHasTenant, ICre
         CreatedAt = at;
         CreatedBy = by;
     }
+
+    void ICreationStamp.StampCreated(DateTimeOffset at, UserId? by) => StampCreated(at, by);
+
+    void ITenantStamp.SetTenant(TenantId tenantId) => SetTenant(tenantId);
 }

@@ -7,7 +7,7 @@ namespace Warehouse.Api.Domain.SharedKernel;
 /// Entity with audit columns and a concurrency token. Values are stamped by the persistence interceptor (T17)
 /// through the internal <c>Stamp*</c> methods; the entity never sets them itself.
 /// </summary>
-public abstract class AuditableEntity<TId> : Entity<TId>, IAuditable, IVersioned
+public abstract class AuditableEntity<TId> : Entity<TId>, IAuditable, IVersioned, ICreationStamp, IModificationStamp
     where TId : notnull
 {
     protected AuditableEntity()
@@ -42,4 +42,8 @@ public abstract class AuditableEntity<TId> : Entity<TId>, IAuditable, IVersioned
         ModifiedAt = at;
         ModifiedBy = by;
     }
+
+    void ICreationStamp.StampCreated(DateTimeOffset at, UserId? by) => StampCreated(at, by);
+
+    void IModificationStamp.StampModified(DateTimeOffset at, UserId? by) => StampModified(at, by);
 }
