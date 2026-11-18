@@ -42,7 +42,7 @@ Cel: zaimplementować model domenowy i warstwę persystencji w **23 małych zada
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
 | T04 | Value objecty ogólne | T02, T03 | ~7k tokenów | ☑ |
-| T07 | Abstrakcje aplikacyjne (Application/Abstractions) | T01, T02 | ~8k tokenów | ☐ |
+| T07 | Abstrakcje aplikacyjne (Application/Abstractions) | T01, T02 | ~8k tokenów | ☑ |
 
 ### Fala 4 (równolegle)
 
