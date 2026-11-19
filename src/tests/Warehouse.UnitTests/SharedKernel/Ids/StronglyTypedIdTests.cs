@@ -16,9 +16,9 @@ public sealed class StronglyTypedIdTests
             .ToArray();
 
     [Fact]
-    public void All_29_ids_from_the_domain_model_exist()
+    public void All_31_ids_from_the_domain_model_exist()
     {
-        AllIdTypes().Length.ShouldBe(29);
+        AllIdTypes().Length.ShouldBe(31);
     }
 
     [Fact]

@@ -56,7 +56,7 @@ Cel: zaimplementować model domenowy i warstwę persystencji w **23 małych zada
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T08 | Tenancy + Catalog (agregaty) | T02, T04, T05, T06 | ~12k tokenów | ☐ |
+| T08 | Tenancy + Catalog (agregaty) | T02, T04, T05, T06 | ~12k tokenów | ☑ |
 | T09 | Locations (agregaty) | T02, T04, T05, T06 | ~8k tokenów | ☐ |
 | T10 | Inventory A — StockMovement, StockLevel, Lot, SerialItem | T02, T03, T04, T05, T06 | ~12k tokenów | ☐ |
 | T11 | Inventory B — Reservation, CostLayer, SkuCostBalance | T02, T03, T04, T05, T06 | ~8k tokenów | ☐ |
