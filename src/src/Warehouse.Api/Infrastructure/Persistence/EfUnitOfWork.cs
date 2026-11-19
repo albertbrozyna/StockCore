@@ -4,7 +4,7 @@ using Warehouse.Api.Application.Abstractions;
 namespace Warehouse.Api.Infrastructure.Persistence;
 
 /// <summary><see cref="IUnitOfWork"/> over <see cref="WarehouseDbContext"/> with one explicit transaction at a time.</summary>
-public sealed class EfUnitOfWork(WarehouseDbContext dbContext) : IUnitOfWork
+public sealed class EfUnitOfWork(WarehouseDbContext dbContext) : IUnitOfWork, IAsyncDisposable
 {
     private IDbContextTransaction? _transaction;
 
@@ -53,6 +53,9 @@ public sealed class EfUnitOfWork(WarehouseDbContext dbContext) : IUnitOfWork
             await DisposeTransactionAsync().ConfigureAwait(false);
         }
     }
+
+    /// <summary>Releases a transaction left open (e.g. after an unhandled exception); the database rolls it back.</summary>
+    public ValueTask DisposeAsync() => new(DisposeTransactionAsync());
 
     private async Task DisposeTransactionAsync()
     {
