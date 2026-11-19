@@ -12,9 +12,10 @@
 - **T07** abstrakcje aplikacyjne + dispatcher CQRS → [`raporty/RAPORT_T07.md`](raporty/RAPORT_T07.md)
 - **T04** value objecty ogólne → [`raporty/RAPORT_T04.md`](raporty/RAPORT_T04.md)
 - **T03** enumy i smart enums → [`raporty/RAPORT_T03.md`](raporty/RAPORT_T03.md)
+- **T08** Tenancy + Catalog (agregaty) → [`raporty/RAPORT_T08.md`](raporty/RAPORT_T08.md)
 
 ## Następne (kolejność z PLAN_PRAC)
-1. Agregaty domenowe **T08–T14** (fala 5, do 7 równolegle), potem T15–T16 i EF T18–T20
+1. Agregaty domenowe **T09–T14** (T08 gotowe) (fala 5, do 7 równolegle), potem T15–T16 i EF T18–T20
 
 ## Znane otwarte pytania
 Zob. sekcje „Odstępstwa i uwagi” w raportach (m.in. wartości `RequiresApproval`/`AffectsStock`, ArchUnitNET vs NetArchTest).
