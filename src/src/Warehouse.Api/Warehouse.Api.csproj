@@ -12,4 +12,7 @@
     <PackageReference Include="FluentValidation" />
     <PackageReference Include="Serilog.AspNetCore" />
   </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Warehouse.UnitTests" />
+  </ItemGroup>
 </Project>

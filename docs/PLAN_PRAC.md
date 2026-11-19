@@ -22,35 +22,35 @@ Cel: zaimplementować model domenowy i warstwę persystencji w **23 małych zada
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T00 | Szkielet rozwiązania | — | ~8k tokenów | ☐ |
+| T00 | Szkielet rozwiązania | — | ~8k tokenów | ☑ |
 
 ### Fala 1 — fundamenty (równolegle)
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T01 | Strongly-typed ID + konwertery | — | ~6k tokenów | ☐ |
-| T03 | Enumeracje (zwykłe i smart enums) | — | ~5k tokenów | ☐ |
+| T01 | Strongly-typed ID + konwertery | — | ~6k tokenów | ☑ |
+| T03 | Enumeracje (zwykłe i smart enums) | — | ~5k tokenów | ☑ |
 
 ### Fala 2
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T02 | SharedKernel — klasy bazowe i abstrakcje | T01 | ~9k tokenów | ☐ |
+| T02 | SharedKernel — klasy bazowe i abstrakcje | T01 | ~9k tokenów | ☑ |
 
 ### Fala 3 (równolegle)
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T04 | Value objecty ogólne | T02, T03 | ~7k tokenów | ☐ |
-| T07 | Abstrakcje aplikacyjne (Application/Abstractions) | T01, T02 | ~8k tokenów | ☐ |
+| T04 | Value objecty ogólne | T02, T03 | ~7k tokenów | ☑ |
+| T07 | Abstrakcje aplikacyjne (Application/Abstractions) | T01, T02 | ~8k tokenów | ☑ |
 
 ### Fala 4 (równolegle)
 
 | Zadanie | Tytuł | Zależy od | Szacunek | Status |
 |---------|-------|-----------|----------|:------:|
-| T05 | Value objecty domenowe | T02, T03, T04 | ~7k tokenów | ☐ |
-| T06 | Zdarzenia domenowe (wszystkie) | T01, T02, T03 | ~6k tokenów | ☐ |
-| T17 | Infrastruktura — DbContext, konwencje, interceptory | T01, T02, T07 | ~12k tokenów | ☐ |
+| T05 | Value objecty domenowe | T02, T03, T04 | ~7k tokenów | ☑ |
+| T06 | Zdarzenia domenowe (wszystkie) | T01, T02, T03 | ~6k tokenów | ☑ |
+| T17 | Infrastruktura — DbContext, konwencje, interceptory | T01, T02, T07 | ~12k tokenów | ☑ |
 
 ### Fala 5 — agregaty domenowe (do 7 czatów równolegle)
 
