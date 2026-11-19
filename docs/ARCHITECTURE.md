@@ -3,20 +3,21 @@
 Skrót; szczegóły: `ZALOZENIA.md` §4–§7, `pakiet/pakiet/01_KONWENCJE_PROJEKTU.md` (kontrakt K-1…K-10) i `pakiet/pakiet/domena/*.md`.
 
 ## Styl
-Jeden projekt Web API (`src/src/Warehouse.Api`, .NET 10 / C# 14) — **vertical slice + DDD**. Logika w agregatach; handlery orkiestrują. Testy w osobnych projektach.
+Cztery projekty (.NET 10 / C# 14) — **vertical slice + DDD**. Logika w agregatach; handlery orkiestrują. Testy w osobnych projektach.
 
 ```text
-src/src/Warehouse.Api/
-├── Domain/{SharedKernel,Tenancy,Catalog,Locations,Inventory,Documents,Fulfillment,Stocktaking,Alerts}
-├── Application/Abstractions/   # IClock, ICurrentUser, ITenantContext, IUnitOfWork, CQRS
-├── Features/                   # slice = use case (endpoint + command + handler + validator)
-├── Infrastructure/Persistence/ # DbContext, Conventions, Interceptors, Configurations, Migrations
-└── Shared/                     # cross-cutting (np. Json)
+src/src/
+├── Warehouse.Domain/          # SharedKernel + konteksty (Tenancy, Catalog, Locations, Inventory, Documents, Fulfillment, Stocktaking, Alerts); bez zależności
+├── Warehouse.Application/     # → Domain. Abstractions (IClock, ICurrentUser, IUnitOfWork, CQRS), Behaviors, DI
+├── Warehouse.Infrastructure/  # → Application. Persistence (DbContext, Conventions, Interceptors, Configurations, Migrations), Json, SystemClock
+└── Warehouse.Api/             # → Infrastructure. Web API, Program.cs, Features/ (slice = endpoint + command + handler + validator)
 src/tests/{UnitTests,IntegrationTests,ArchitectureTests}
 ```
 
+Kierunek zależności wymusza struktura projektów (Domain nie referuje niczego; Application nie widzi EF ani ASP.NET).
+
 ## Kluczowe decyzje (skrót K-1…K-10)
-- Wszystkie ID, value objecty i enumy w `Domain/SharedKernel/…`; konteksty mają tylko encje, zdarzenia, serwisy.
+- Wszystkie ID, value objecty i enumy w `Warehouse.Domain/SharedKernel/…`; konteksty mają tylko encje, zdarzenia, serwisy.
 - Domena bez EF/ASP.NET i bez NuGet (poza BCL); fabryki `Create` rzucają `DomainException`; `Result<T>` w Application.
 - EF Core + Npgsql, TPH dla dokumentów, multi-tenancy: shared schema + `TenantId` + globalny query filter.
 - Własny dispatcher CQRS (bez MediatR); księgowanie ruchów synchronicznie w jednej transakcji z zatwierdzeniem dokumentu.

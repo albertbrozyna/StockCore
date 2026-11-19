@@ -1,8 +1,8 @@
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Enums;
-using Warehouse.Api.Domain.SharedKernel.ValueObjects;
-using Warehouse.Api.Domain.Tenancy;
-using Warehouse.Api.Domain.Tenancy.Events;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Enums;
+using Warehouse.Domain.SharedKernel.ValueObjects;
+using Warehouse.Domain.Tenancy;
+using Warehouse.Domain.Tenancy.Events;
 
 namespace Warehouse.UnitTests.Domain;
 

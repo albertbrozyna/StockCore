@@ -1,13 +1,13 @@
 using Microsoft.EntityFrameworkCore;
-using Warehouse.Api.Application.Abstractions;
-using Warehouse.Api.Domain.Catalog.Events;
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Enums;
-using Warehouse.Api.Domain.SharedKernel.Ids;
-using Warehouse.Api.Infrastructure.Persistence;
-using Warehouse.Api.Infrastructure.Persistence.Conventions;
-using Warehouse.Api.Infrastructure.Persistence.Interceptors;
-using Warehouse.Api.Infrastructure.Persistence.Outbox;
+using Warehouse.Application.Abstractions;
+using Warehouse.Domain.Catalog.Events;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Enums;
+using Warehouse.Domain.SharedKernel.Ids;
+using Warehouse.Infrastructure.Persistence;
+using Warehouse.Infrastructure.Persistence.Conventions;
+using Warehouse.Infrastructure.Persistence.Interceptors;
+using Warehouse.Infrastructure.Persistence.Outbox;
 
 namespace Warehouse.UnitTests.Infrastructure;
 
@@ -266,7 +266,7 @@ public sealed class PersistenceModelTests
     {
         var tenant = TenantId.New();
         var documentId = DocumentId.New();
-        var approved = new Warehouse.Api.Domain.Documents.Events.DocumentApproved(
+        var approved = new Warehouse.Domain.Documents.Events.DocumentApproved(
             tenant, FakeClock.Now, documentId, DocumentType.Receipt, "PZ/WH1/2026/000001", WarehouseId.New(), FakeClock.Now);
 
         var message = OutboxMessage.Create(approved);
@@ -278,9 +278,9 @@ public sealed class PersistenceModelTests
 
     private sealed class RecordingDispatcher : IDomainEventDispatcher
     {
-        public List<Warehouse.Api.Domain.SharedKernel.Abstractions.IDomainEvent> Dispatched { get; } = [];
+        public List<Warehouse.Domain.SharedKernel.Abstractions.IDomainEvent> Dispatched { get; } = [];
 
-        public Task DispatchAsync(IEnumerable<Warehouse.Api.Domain.SharedKernel.Abstractions.IDomainEvent> events, CancellationToken ct)
+        public Task DispatchAsync(IEnumerable<Warehouse.Domain.SharedKernel.Abstractions.IDomainEvent> events, CancellationToken ct)
         {
             Dispatched.AddRange(events);
             return Task.CompletedTask;

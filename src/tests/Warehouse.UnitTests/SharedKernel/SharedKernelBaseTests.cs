@@ -1,6 +1,6 @@
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Abstractions;
-using Warehouse.Api.Domain.SharedKernel.Ids;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Abstractions;
+using Warehouse.Domain.SharedKernel.Ids;
 
 namespace Warehouse.UnitTests.SharedKernel;
 

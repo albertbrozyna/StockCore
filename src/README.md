@@ -14,7 +14,7 @@ Pełne środowisko: `docker compose up --build` (API na `http://localhost:8080`)
 
 ## Struktura
 
-- `src/Warehouse.Api` — jedyny projekt Web API (Domain / Application / Features / Infrastructure / Shared)
+- `src/Warehouse.Domain` → `Warehouse.Application` → `Warehouse.Infrastructure` → `Warehouse.Api` (Web API, Features)
 - `tests/` — UnitTests, IntegrationTests (Testcontainers), ArchitectureTests (NetArchTest)
 - `docs/` — dokumentacja (adr, domain, api, architecture, runbooks)
 

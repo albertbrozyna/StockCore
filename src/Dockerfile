@@ -2,6 +2,9 @@
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 COPY global.json Directory.Build.props Directory.Packages.props ./
+COPY src/Warehouse.Domain/Warehouse.Domain.csproj src/Warehouse.Domain/
+COPY src/Warehouse.Application/Warehouse.Application.csproj src/Warehouse.Application/
+COPY src/Warehouse.Infrastructure/Warehouse.Infrastructure.csproj src/Warehouse.Infrastructure/
 COPY src/Warehouse.Api/Warehouse.Api.csproj src/Warehouse.Api/
 RUN dotnet restore src/Warehouse.Api/Warehouse.Api.csproj
 COPY src/ src/

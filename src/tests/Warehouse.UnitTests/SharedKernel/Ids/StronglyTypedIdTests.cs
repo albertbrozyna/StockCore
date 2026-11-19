@@ -1,8 +1,8 @@
 using System.Text.Json;
-using Warehouse.Api.Domain.SharedKernel.Abstractions;
-using Warehouse.Api.Domain.SharedKernel.Ids;
-using Warehouse.Api.Infrastructure.Persistence.Conventions;
-using Warehouse.Api.Shared.Json;
+using Warehouse.Domain.SharedKernel.Abstractions;
+using Warehouse.Domain.SharedKernel.Ids;
+using Warehouse.Infrastructure.Persistence.Conventions;
+using Warehouse.Infrastructure.Json;
 
 namespace Warehouse.UnitTests.SharedKernel.Ids;
 

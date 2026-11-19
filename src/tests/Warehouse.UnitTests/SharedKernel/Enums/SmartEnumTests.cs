@@ -1,5 +1,5 @@
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Enums;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Enums;
 
 namespace Warehouse.UnitTests.SharedKernel.Enums;
 

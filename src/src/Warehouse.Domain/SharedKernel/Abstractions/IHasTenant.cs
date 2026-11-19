@@ -1,0 +1,9 @@
+using Warehouse.Domain.SharedKernel.Ids;
+
+namespace Warehouse.Domain.SharedKernel.Abstractions;
+
+/// <summary>An object that belongs to a tenant.</summary>
+public interface IHasTenant
+{
+    TenantId TenantId { get; }
+}

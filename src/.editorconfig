@@ -30,9 +30,9 @@ dotnet_naming_symbols.private_fields.applicable_accessibilities = private
 dotnet_naming_style.underscore_camel.required_prefix = _
 dotnet_naming_style.underscore_camel.capitalization = camel_case
 
-# 'Shared' namespace is mandated by project conventions; VB interop is irrelevant here.
+# 'Error' (SharedKernel) is the mandated name of the error type; VB interop is irrelevant here.
 dotnet_diagnostic.CA1716.severity = none
 
 # Domain vocabulary (PickingLineStatus.Short) is mandated by the domain model.
-[**/Domain/SharedKernel/Enums/PickingLineStatus.cs]
+[**/Warehouse.Domain/SharedKernel/Enums/PickingLineStatus.cs]
 dotnet_diagnostic.CA1720.severity = none
