@@ -1,10 +1,10 @@
-using Warehouse.Api.Domain.Catalog;
-using Warehouse.Api.Domain.Catalog.Events;
-using Warehouse.Api.Domain.Catalog.Services;
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Enums;
-using Warehouse.Api.Domain.SharedKernel.Ids;
-using Warehouse.Api.Domain.SharedKernel.ValueObjects;
+using Warehouse.Domain.Catalog;
+using Warehouse.Domain.Catalog.Events;
+using Warehouse.Domain.Catalog.Services;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Enums;
+using Warehouse.Domain.SharedKernel.Ids;
+using Warehouse.Domain.SharedKernel.ValueObjects;
 
 namespace Warehouse.UnitTests.Domain;
 

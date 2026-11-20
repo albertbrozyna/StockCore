@@ -1,8 +1,8 @@
-using Warehouse.Api.Domain.Documents.Events;
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Abstractions;
-using Warehouse.Api.Domain.SharedKernel.Ids;
-using Warehouse.Api.Domain.SharedKernel.ValueObjects;
+using Warehouse.Domain.Documents.Events;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Abstractions;
+using Warehouse.Domain.SharedKernel.Ids;
+using Warehouse.Domain.SharedKernel.ValueObjects;
 
 namespace Warehouse.UnitTests.SharedKernel.Events;
 

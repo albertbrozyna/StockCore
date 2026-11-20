@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Warehouse.Domain</RootNamespace>
+    <AssemblyName>Warehouse.Domain</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Warehouse.Infrastructure" />
+    <InternalsVisibleTo Include="Warehouse.UnitTests" />
+  </ItemGroup>
+</Project>

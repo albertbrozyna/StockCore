@@ -1,6 +1,6 @@
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Enums;
-using Warehouse.Api.Domain.SharedKernel.ValueObjects;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Enums;
+using Warehouse.Domain.SharedKernel.ValueObjects;
 
 namespace Warehouse.UnitTests.SharedKernel.ValueObjects;
 

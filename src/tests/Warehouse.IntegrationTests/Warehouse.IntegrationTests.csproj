@@ -24,5 +24,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Warehouse.Api\Warehouse.Api.csproj" />
+    <ProjectReference Include="..\..\src\Warehouse.Domain\Warehouse.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Warehouse.Application\Warehouse.Application.csproj" />
+    <ProjectReference Include="..\..\src\Warehouse.Infrastructure\Warehouse.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

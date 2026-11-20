@@ -4,34 +4,36 @@ Ten plik jest **kontraktem wspólnym** dla wszystkich czatów. Jeśli coś tu je
 
 ## 1. Rozwiązanie i przestrzenie nazw
 
-Jeden projekt Web API: `src/Warehouse.Api` (root namespace `Warehouse.Api`). Testy w osobnych projektach.
+Cztery projekty w `src/src/`: `Warehouse.Domain` (root namespace `Warehouse.Domain`), `Warehouse.Application` (→ Domain), `Warehouse.Infrastructure` (→ Application), `Warehouse.Api` (→ Infrastructure; Web API). Testy w osobnych projektach.
 
 ```text
-src/Warehouse.Api/
-├── Domain/
-│   ├── SharedKernel/
-│   │   ├── Abstractions/      # interfejsy (IEntity, IHasTenant, IAuditable, ...)
-│   │   ├── Ids/               # WSZYSTKIE strongly-typed ID
-│   │   ├── ValueObjects/      # WSZYSTKIE value objecty
-│   │   ├── Enums/             # WSZYSTKIE enumy i smart enums (Enumeration)
-│   │   └── (Entity.cs, AuditableEntity.cs, TenantEntity.cs, ... Result.cs, Error.cs, Guard.cs)
-│   ├── Tenancy/  Catalog/  Locations/  Inventory/  Documents/  Fulfillment/  Stocktaking/  Alerts/
-│   │   └── <kontekst>/Events/ , <kontekst>/Services/ (interfejsy serwisów domenowych)
-├── Application/
-│   └── Abstractions/          # IClock, ICurrentUser, ITenantContext, IUnitOfWork, CQRS, pipeline
-├── Features/                  # vertical slices (na razie puste)
-├── Infrastructure/
-│   └── Persistence/           # WarehouseDbContext, Conventions/, Interceptors/, Configurations/<Kontekst>/, Migrations/
-└── Shared/
+Warehouse.Domain/
+├── SharedKernel/
+│   ├── Abstractions/      # interfejsy (IEntity, IHasTenant, IAuditable, ...)
+│   ├── Ids/               # WSZYSTKIE strongly-typed ID
+│   ├── ValueObjects/      # WSZYSTKIE value objecty
+│   ├── Enums/             # WSZYSTKIE enumy i smart enums (Enumeration)
+│   └── (Entity.cs, AuditableEntity.cs, TenantEntity.cs, ... Result.cs, Error.cs, Guard.cs)
+└── Tenancy/  Catalog/  Locations/  Inventory/  Documents/  Fulfillment/  Stocktaking/  Alerts/
+    └── <kontekst>/Events/ , <kontekst>/Services/ (interfejsy serwisów domenowych)
+Warehouse.Application/
+├── Abstractions/          # IClock, ICurrentUser, ITenantContext, IUnitOfWork, CQRS, pipeline
+├── Behaviors/
+└── Features/<Obszar>/<UseCase>/   # Command|Query, Handler, Validator, Result (na razie puste)
+Warehouse.Infrastructure/
+├── Persistence/           # WarehouseDbContext, Conventions/, Interceptors/, Configurations/<Kontekst>/, Migrations/
+└── Json/                  # konwertery JSON (strongly-typed ID, enumeracje)
+Warehouse.Api/
+└── Features/<Obszar>/<UseCase>/   # Endpoint + Request/Response (kontrakt HTTP); woła tylko IDispatcher (na razie puste)
 ```
-Namespace = ścieżka folderu (np. `Warehouse.Api.Domain.Inventory.Events`).
+Namespace = projekt + ścieżka folderu (np. `Warehouse.Domain.Inventory.Events`, `Warehouse.Infrastructure.Persistence`).
 
 ## 2. Rozstrzygnięcia decyzji (K-1 … K-10)
 
 | # | Decyzja |
 |---|---------|
 | K-1 | Zdarzenia domenowe w `Entity<TId>` (`Raise`, `DomainEvents`, `ClearDomainEvents`). |
-| K-2 | **Wszystkie** ID, value objecty i enumy (w tym smart enums) leżą w `Domain/SharedKernel/…` — kontekstowe foldery zawierają tylko encje, zdarzenia i serwisy. Zdejmuje to zależności między kontekstami. |
+| K-2 | **Wszystkie** ID, value objecty i enumy (w tym smart enums) leżą w `Warehouse.Domain/SharedKernel/…` — kontekstowe foldery zawierają tylko encje, zdarzenia i serwisy. Zdejmuje to zależności między kontekstami. |
 | K-3 | Dokumenty i ich linie: EF **TPH**. |
 | K-4 | EF Core + Npgsql do zapisu. Domena **nie** referuje EF ani ASP.NET (żadnych atrybutów EF w domenie). |
 | K-5 | Własny lekki dispatcher CQRS (bez MediatR). |
@@ -60,7 +62,7 @@ Odwołania do agregatów innych kontekstów **wyłącznie przez ID**. Zdarzenia 
 ## 5. Strongly-typed ID — wzorzec (identyczny dla wszystkich)
 
 ```csharp
-namespace Warehouse.Api.Domain.SharedKernel.Ids;
+namespace Warehouse.Domain.SharedKernel.Ids;
 
 public readonly record struct SkuId(Guid Value) : IStronglyTypedId<Guid>
 {

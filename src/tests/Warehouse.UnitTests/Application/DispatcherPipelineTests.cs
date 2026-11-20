@@ -1,11 +1,11 @@
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging.Abstractions;
-using Warehouse.Api.Application;
-using Warehouse.Api.Application.Abstractions;
-using Warehouse.Api.Application.Abstractions.Messaging;
-using Warehouse.Api.Domain.SharedKernel;
-using Warehouse.Api.Domain.SharedKernel.Ids;
+using Warehouse.Application;
+using Warehouse.Application.Abstractions;
+using Warehouse.Application.Abstractions.Messaging;
+using Warehouse.Domain.SharedKernel;
+using Warehouse.Domain.SharedKernel.Ids;
 
 namespace Warehouse.UnitTests.Application;
 
