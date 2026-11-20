@@ -18,12 +18,13 @@ Warehouse.Domain/
     └── <kontekst>/Events/ , <kontekst>/Services/ (interfejsy serwisów domenowych)
 Warehouse.Application/
 ├── Abstractions/          # IClock, ICurrentUser, ITenantContext, IUnitOfWork, CQRS, pipeline
-└── Behaviors/
+├── Behaviors/
+└── Features/<Obszar>/<UseCase>/   # Command|Query, Handler, Validator, Result (na razie puste)
 Warehouse.Infrastructure/
 ├── Persistence/           # WarehouseDbContext, Conventions/, Interceptors/, Configurations/<Kontekst>/, Migrations/
 └── Json/                  # konwertery JSON (strongly-typed ID, enumeracje)
 Warehouse.Api/
-└── Features/              # vertical slices (na razie puste)
+└── Features/<Obszar>/<UseCase>/   # Endpoint + Request/Response (kontrakt HTTP); woła tylko IDispatcher (na razie puste)
 ```
 Namespace = projekt + ścieżka folderu (np. `Warehouse.Domain.Inventory.Events`, `Warehouse.Infrastructure.Persistence`).
 

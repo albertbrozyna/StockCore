@@ -8,9 +8,9 @@ Cztery projekty (.NET 10 / C# 14) — **vertical slice + DDD**. Logika w agregat
 ```text
 src/src/
 ├── Warehouse.Domain/          # SharedKernel + konteksty (Tenancy, Catalog, Locations, Inventory, Documents, Fulfillment, Stocktaking, Alerts); bez zależności
-├── Warehouse.Application/     # → Domain. Abstractions (IClock, ICurrentUser, IUnitOfWork, CQRS), Behaviors, DI
+├── Warehouse.Application/     # → Domain. Abstractions (IClock, ICurrentUser, IUnitOfWork, CQRS), Behaviors, DI, Features/ (logika slice'a: command + handler + validator + result)
 ├── Warehouse.Infrastructure/  # → Application. Persistence (DbContext, Conventions, Interceptors, Configurations, Migrations), Json, SystemClock
-└── Warehouse.Api/             # → Infrastructure. Web API, Program.cs, Features/ (slice = endpoint + command + handler + validator)
+└── Warehouse.Api/             # → Infrastructure. Web API, Program.cs, Features/ (endpoint + kontrakt HTTP slice'a)
 src/tests/{UnitTests,IntegrationTests,ArchitectureTests}
 ```
 
@@ -22,6 +22,7 @@ Kierunek zależności wymusza struktura projektów (Domain nie referuje niczego;
 - EF Core + Npgsql, TPH dla dokumentów, multi-tenancy: shared schema + `TenantId` + globalny query filter.
 - Własny dispatcher CQRS (bez MediatR); księgowanie ruchów synchronicznie w jednej transakcji z zatwierdzeniem dokumentu.
 - Odwołania między agregatami wyłącznie przez ID; slice'y nie wołają innych slice'ów.
+- **Slice jest rozłożony na dwa projekty o lustrzanych folderach** (`Features/<Obszar>/<UseCase>/`): logika w `Warehouse.Application` (`<UseCase>Command|Query`, `Handler`, `Validator`, `Result`), a w `Warehouse.Api` cienki endpoint i kontrakt HTTP (`<UseCase>Request`/`Response`). Endpoint tylko mapuje request na command, woła `IDispatcher` i mapuje `Result` na odpowiedź HTTP (ProblemDetails); nie zna `DbContext` ani agregatów. Wspólny kod slice'ów trafia do `Application/Abstractions` lub domeny, nie do innego slice'a. Handlery rejestruje `AddHandlersFromAssembly` (skanuje Application).
 
 ## Zasady kodu
 `#nullable enable`, file-scoped namespaces, jeden typ publiczny na plik, klasy `sealed`, brak `DateTime.Now` (używaj `IClock`), `TreatWarningsAsErrors`, centralne wersje pakietów (`Directory.Packages.props`).
